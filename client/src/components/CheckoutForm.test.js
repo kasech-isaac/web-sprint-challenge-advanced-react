@@ -8,12 +8,18 @@ import App from "../App"
 
 test("form header renders", () => {
     const container = render(<App />);
-    console.log(container)
+    // console.log(container)
    container.queryByLabelText('input[name="firstName"]')
    container.queryByLabelText('input[name="address"]')
    container.queryByLabelText('input[name="city"]')
    container.queryByLabelText('input[name="zip"]')
+   container.queryByLabelText('input[name="State"]')
+   container.queryByLabelText(/h2/i)
+  
   
    });
 
-test("form shows success message on submit with form details", () => {});
+test("form shows success message on submit with form details", () => {
+    const final = render(<App />);
+    final.queryByLabelText(/button/i)
+});

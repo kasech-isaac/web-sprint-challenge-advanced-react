@@ -7,19 +7,16 @@ import App from "../App"
 
 
 test("form header renders", () => {
-    const container = render(<App />);
-    // console.log(container)
-   container.queryByLabelText('input[name="firstName"]')
-   container.queryByLabelText('input[name="address"]')
-   container.queryByLabelText('input[name="city"]')
-   container.queryByLabelText('input[name="zip"]')
-   container.queryByLabelText('input[name="State"]')
-   container.queryByLabelText(/h2/i)
-  
-  
-   });
+    const {getByText}=render(<CheckoutForm/>)
+    const formHeader=getByText('Checkout Form')
+    expect(formHeader).toBeInTheDocument()
+ });
 
 test("form shows success message on submit with form details", () => {
-    const final = render(<App />);
-    final.queryByLabelText(/button/i)
+    const  container=render(<CheckoutForm/>)
+    container.querySelector('input[name="firstName"]')
+    container.querySelector('input[name="address"]')
+    container.querySelector('input[name="city"]')
+    container.querySelector('input[name="state"]')
+    container.querySelector('input[name="zip"]')
 });
